@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Alert, Button } from "react-native";
+import { Button, Image } from "react-native";
 import { useDispatch } from "react-redux";
 import { fetchLogin } from "../../redux/slices/auth";
 import styled from "styled-components/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "../../utils/axios";
+import Logo from "../../components/Logo";
 
 const LoginContainer = styled.View`
   padding: 20px;
@@ -14,7 +14,9 @@ const LoginContainer = styled.View`
   align-items: center;
 `;
 
-const LoginWrapper = styled.View``;
+const LoginWrapper = styled.View`
+  margin-top: 40px;
+`;
 
 const Form = styled.View`
   gap: 10px;
@@ -47,11 +49,7 @@ const Login = ({ navigation }) => {
 
   return (
     <LoginContainer>
-      {/* <Image
-        source={require("../../../assets/logo.svg")}
-        width={200}
-        height={200}
-      /> */}
+      <Logo width={120} height={100} />
 
       <LoginWrapper>
         <Form>
@@ -66,7 +64,7 @@ const Login = ({ navigation }) => {
             placeholder="Пароль"
             secureTextEntry
           />
-          <Button title="Войти" onPress={loginUser} />
+          <Button title="Войти" onPress={loginUser} color="#9B9B9B" />
         </Form>
       </LoginWrapper>
     </LoginContainer>
